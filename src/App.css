@@ -79,6 +79,19 @@ input, select {
   margin-left: 20%;
   font-weight: normal;
 }
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: -3.5rem;
+  cursor: pointer;
+  padding: .5rem;
+  border: none;
+  background: none;
+  color: var(--main-color);
+}
+.delete-btn:hover {
+  color: red;
+}
 
 .card-content {
   display: flex;
@@ -171,6 +184,11 @@ input, select {
   font-size: 1.4rem;
   word-spacing: .2rem;
 }
+.card-holder {
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
 
 .expire-date {
   display: flex;
@@ -187,13 +205,4 @@ input, select {
 .label {
   font-size: 11px;
   color: white;
-}
-.front{
-  z-index: 2;
-}
-.middle {
-  z-index: 1;
-}
-.back {
-  z-index: 0;
 }

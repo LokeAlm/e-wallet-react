@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 const cardSlice = createSlice({
     name: "card",
     initialState: {
@@ -13,24 +12,6 @@ const cardSlice = createSlice({
             expYear: "25",
             ccv: "123",
             isActive: true
-            },
-            {
-            cardHolder: "Parry Hotter",
-            cardNr: "1234 5678 9123 4568",
-            vendor: "Iron Bank of Braavos",
-            expMonth: "02",
-            expYear: "25",
-            ccv: "123",
-            isActive: false
-            },
-            {
-            cardHolder: "Barry Shotter",
-            cardNr: "1234 5678 9123 4569",
-            vendor: "Intergalactic Banking Clan",
-            expMonth: "02",
-            expYear: "25",
-            ccv: "123",
-            isActive: false
             }
         ]
     },
@@ -53,15 +34,19 @@ const cardSlice = createSlice({
                 }
                 return null;
             })
+        },
+        deleteCard: (state, action) => {
+            state.allCards.map((card, i) => {
+                if(card.cardNr === action.payload){
+                    state.allCards.splice(i, 1)
+                }
+                return null;
+            })
         }
     }
 })
-
-
 const { actions, reducer } = cardSlice;
-
-export const { submitForm , toggleActive } = actions;
+export const { submitForm , toggleActive, deleteCard } = actions;
 
 export default reducer;
 
-//När man vill använda sig utav ett värde i sin action, så är det bara att skicka med den när man dispatchar, så finns den tillgänglig i action.payload.se minut 17:30 
