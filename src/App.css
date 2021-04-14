@@ -6,8 +6,9 @@
 
 :root {
   --card-color-one: #d6a400;
-  --card-color-two: #276792;
-  --card-color-three: #d36600;
+  --card-color-two: #5f93b6;
+  --card-color-three: #cc7626;
+  --card-color-four: #59ad5d;
   --light-gray: #9c9c9c;
 }
 
@@ -48,7 +49,7 @@ input, select {
   cursor: pointer;
   width: max-content;
   padding: .8rem 2rem;
-  margin: 1rem;
+  margin: 1rem 2rem;
   color: #0c2546;
   background-color: var(--card-color-one);
   font-weight: 600;
@@ -64,11 +65,15 @@ input, select {
 }
 .add-btn {
   position: absolute;
-  top: 5rem;
-  right: 12rem;
+  top: 1rem;
+  right: 20%;
+}
+.go-back-btn {
+  padding: .5rem;
+  margin-left: 20%;
 }
 
-.card {
+.card-content {
   width: 350px;
   height: 180px;
   padding: 1.5rem;
@@ -78,31 +83,45 @@ input, select {
 .active-card {
   margin: 2rem auto;
 }
-.preview-card {
-  background: var(--light-gray);
-  margin: 3rem 1rem;
-}
-.card0, .card1, .card2, .card3 {
+.inactive {
   position: relative;
+  cursor: pointer;
 }
-.card0 .card {
+.preview-card {
+  height: 180px;
+  margin: 3rem 1rem;
+  border-radius: 7px;
+  background: var(--light-gray);
+}
+.card {
+  border-radius: 7px;
+}
+.card0 {
   background-color: var(--card-color-one);
 }
-.card1 .card {
-  position: absolute;
+.card1 {
   background-color: var(--card-color-two);
 }
-.card2 .card {
-  position: absolute;
-  top: 4rem;
-  left: 1rem;
+.card2 {
   background-color: var(--card-color-three);
 }
-.card3 .card {
+.card3 {
+  background-color: var(--card-color-four);
+}
+.inactive > .card {
   position: absolute;
-  top: 8rem;
+}
+.inactive > .card:first-child {
+  top: 0;
+  left: 0;
+}
+.inactive > .card:nth-child(2) {
+  top: 3rem;
   left: 2rem;
-  background-color: var(--card-color-one);
+}
+.inactive > .card:nth-child(3) {
+  top: 6rem;
+  left: 4rem;
 }
 
 .expire-date {

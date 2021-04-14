@@ -1,46 +1,26 @@
-import { useSelector } from 'react-redux';                             
-import GWBLogo from '../../resources/GWBLogo.webp';
-import IBBLogo from '../../resources/IBBLogo.webp';
-import IBCLogo from '../../resources/IBCLogo.webp';
+import { useDispatch } from 'react-redux';             
+import { toggleActive } from './cardSlice';         
 
-const Card = () => {
-    const cards = useSelector((state) => state.card.allCards);
+const Card = (props) => {
+    const dispatch = useDispatch();
 
-    const handleClick = (event) => {
-        console.log(event.target);
+    const handleChange = (payload) => {
+        dispatch(toggleActive(payload));
     }
 
     return (
         <>
-            {cards.map((card, i) => {
-                let className = "card" + i; // for css style
-                return (
-                    <div key={i} className={className}>
-                        {card.isActive ? 
-                        <div className="active-card">
-                            <p className="small-type">Active card</p>
-                            <div className="card">
-                                <h3>{cards[i].cardHolder}</h3>
-                                <p>{cards[i].cardNr}</p>
-                                {cards[i].vendor === "Gringotts Bank" ?
-                                <img src={GWBLogo}/> 
-                                : cards[i].vendor === "Intergalactic Banking Clan" ? 
-                                <img src={IBCLogo}/> 
-                                : <img src={IBBLogo}/> }
-                                <p>{cards[i].expMonth}/{cards[i].expYear}</p>
-                            </div>
-                        </div> : null}
+            <div className="card-content" onClick={() => handleChange(props.cardNr)} >
 
-                        {!card.isActive ? 
-                        <div className="card" onClick={handleClick}>
-                            <h3>{cards[i].cardHolder}</h3>
-                            <p>{cards[i].cardNr}</p>
-                            <p>{cards[i].vendor}</p>
-                            <p>{cards[i].expMonth}/{cards[i].expYear}</p>
-                        </div> : null}
-                    </div>
-                )
-            })}
+                <h3>{props.cardHolder ? props.cardHolder : "FirstName Lastname"}</h3>
+                
+                <p>{props.cardNr ? props.cardNr : "XXXX XXXX XXXX XXXX"}</p>
+
+                <p>{props.vendor ? props.vendor : "ExampleVendor"}</p>
+
+                <p>{props.expMonth ? props.expMonth : "MM"} /{props.expYear ? props.expYear : "YY"}</p>           
+
+            </div>
         </>
     )
 };

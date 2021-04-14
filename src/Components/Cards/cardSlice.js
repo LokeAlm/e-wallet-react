@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 const cardSlice = createSlice({
     name: "card",
     initialState: {
@@ -14,32 +15,23 @@ const cardSlice = createSlice({
             isActive: true
             },
             {
-                cardHolder: "Harry Potter",
-                cardNr: "1234 5678 9123 4567",
-                vendor: "Gringotts Bank",
-                expMonth: "02",
-                expYear: "25",
-                ccv: "123",
-                isActive: false
-                },
-                {
-                    cardHolder: "Harry Potter",
-                    cardNr: "1234 5678 9123 4567",
-                    vendor: "Gringotts Bank",
-                    expMonth: "02",
-                    expYear: "25",
-                    ccv: "123",
-                    isActive: false
-                    },
-                    {
-                        cardHolder: "Harry Potter",
-                        cardNr: "1234 5678 9123 4567",
-                        vendor: "Gringotts Bank",
-                        expMonth: "02",
-                        expYear: "25",
-                        ccv: "123",
-                        isActive: false
-                        }
+            cardHolder: "Parry Hotter",
+            cardNr: "1234 5678 9123 4568",
+            vendor: "Gringotts Bank",
+            expMonth: "02",
+            expYear: "25",
+            ccv: "123",
+            isActive: false
+            },
+            {
+            cardHolder: "Barry Shotter",
+            cardNr: "1234 5678 9123 4569",
+            vendor: "Gringotts Bank",
+            expMonth: "02",
+            expYear: "25",
+            ccv: "123",
+            isActive: false
+            }
         ]
     },
     reducers: {
@@ -50,13 +42,25 @@ const cardSlice = createSlice({
             } else {
                 alert("You can have maximum 4 cards saved"); 
             }
+        },
+        toggleActive: (state, action) => {
+            state.allCards.map((card) => {
+                if(card.isActive === true) {
+                    card.isActive = false;
+                }
+                if(card.cardNr === action.payload){
+                    card.isActive = true;
+                }
+                return null;
+            })
         }
     }
-});
+})
+
 
 const { actions, reducer } = cardSlice;
 
-export const { submitForm } = actions;
+export const { submitForm , toggleActive } = actions;
 
 export default reducer;
 

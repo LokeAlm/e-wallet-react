@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { submitForm } from '../Cards/cardSlice';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+import Card from '../Cards/Card';
 
 const Addcard = () => {
     const dispatch = useDispatch();
@@ -111,13 +112,13 @@ const Addcard = () => {
 
     return ( 
         <>
+        <Link to="/">
+            <button className="btn go-back-btn">Go back</button>
+        </Link>
             <h2 className="page-header">Add a new bank card</h2>
             <div className="addcard-wrapper">
                 <div className="card preview-card">
-                    <h3>{cardHolder}</h3>
-                    <p>{cardNr}</p>
-                    <p>{vendor}</p>
-                    <p>{expMonth}/{expYear}</p>
+                    <Card cardNr={cardNr} cardHolder={cardHolder} vendor={vendor} expMonth={expMonth} expYear={expYear} />
                 </div>
                 <form className="form-wrapper" onSubmit={handleSubmit}>
                     <label>
