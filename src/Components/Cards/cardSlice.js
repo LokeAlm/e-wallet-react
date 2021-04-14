@@ -17,7 +17,7 @@ const cardSlice = createSlice({
             {
             cardHolder: "Parry Hotter",
             cardNr: "1234 5678 9123 4568",
-            vendor: "Gringotts Bank",
+            vendor: "Iron Bank of Braavos",
             expMonth: "02",
             expYear: "25",
             ccv: "123",
@@ -26,7 +26,7 @@ const cardSlice = createSlice({
             {
             cardHolder: "Barry Shotter",
             cardNr: "1234 5678 9123 4569",
-            vendor: "Gringotts Bank",
+            vendor: "Intergalactic Banking Clan",
             expMonth: "02",
             expYear: "25",
             ccv: "123",

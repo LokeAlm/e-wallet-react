@@ -113,13 +113,17 @@ const Addcard = () => {
     return ( 
         <>
         <Link to="/">
-            <button className="btn go-back-btn">Go back</button>
+            <button className="btn go-back-btn">GO BACK</button>
         </Link>
             <h2 className="page-header">Add a new bank card</h2>
             <div className="addcard-wrapper">
-                <div className="card preview-card">
+                
+                <div className={vendor === "Gringotts Bank" ? "card preview-card card0" : vendor === "Iron Bank of Braavos" ? "card preview-card card1" 
+                : vendor === "Intergalactic Banking Clan" ? "card preview-card card2" 
+                : "preview-card card"}>
                     <Card cardNr={cardNr} cardHolder={cardHolder} vendor={vendor} expMonth={expMonth} expYear={expYear} />
                 </div>
+                
                 <form className="form-wrapper" onSubmit={handleSubmit}>
                     <label>
                         <p>Name on card:</p>

@@ -12,9 +12,9 @@ const Home = () => {
             <p className="small-type">Active card</p>
                 {cards.map((card, i) => {
                     if(card.isActive){
-                        let className = "card card" + i; // for css style
                         return (
-                            <div key={i} className={className} >
+                            <div className={card.vendor === "Gringotts Bank" ? "card card0" : card.vendor === "Iron Bank of Braavos" ? "card card1"
+                            : card.vendor === "Intergalactic Banking Clan" ? "card card2" : null} key={i}>
                                 <Card {...card} />  
                             </div>                   
                         ) 
@@ -30,11 +30,11 @@ const Home = () => {
             <div className="inactive">
                 {cards.map((card, i) => {
                     if(!card.isActive){
-                        let className = "card card" + i; // for css style
-                        return (
-                            <div className={className} key={i}>
+                        return ( 
+                            <div className={card.vendor === "Gringotts Bank" ? "card card0" : card.vendor === "Iron Bank of Braavos" ? "card card1"
+                            : card.vendor === "Intergalactic Banking Clan" ? "card card2" : null} key={i}>
                                 <Card {...card} />
-                            </div>
+                            </div> 
                         )
                     }
                     return null;
